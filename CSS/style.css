@@ -1,0 +1,59 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+  margin:0 auto;
+  padding: 0;
+  
+}
+.header{
+    background: #c71461;
+    text-align: center;
+    padding: 0 0 0 0;
+}
+.play-ground {
+    position: relative;
+    max-width : 340px;
+    height: 340px;
+    border: 5px solid #c71461;
+    background:url('../IMG/pattern.jpg');
+    background-size: cover;
+  
+  }
+  .wrapper
+  {
+    max-width:340px;
+  }
+  
+  .ball {
+      display: block;
+      text-indent: -9999px;
+    position: absolute;
+   
+    width : 20px;
+    height: 20px;
+    background: url('../IMG/beachBall.svg');
+    background-size: 20px 20px;
+    
+  }
+  .hole{
+
+    position: absolute;
+    display: block;
+    left: 20px;
+    bottom: 20px;
+    height: 70px;
+    text-indent: -9990px;
+    width: 70px;
+    background: url('../IMG/strainer.svg');
+    background-size: 70px 70px;
+    
+  }
+  .panelGame , .TheEndGame
+  {
+    display: block;
+    height:100vh;
+   
+    background: red;
+  }
+  
