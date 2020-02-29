@@ -22,7 +22,7 @@ let posY;
 
 setBallProperties=()=>
 {
-    posX = window.innerWidth/2;
+  posX = window.innerWidth/2;
   posY = window.innerHeight/2;
 
   
@@ -36,7 +36,7 @@ setBallProperties=()=>
   board.appendChild(circle.el);
 }
 
- setBallProperties()
+ setBallProperties();
 // }
 // finishGame=(param,time)=>
 // {
