@@ -11,18 +11,21 @@ body{
     text-align: center;
     padding: 0 0 0 0;
 }
-.play-ground {
-    position: relative;
-    max-width : 340px;
-    height: 340px;
-    border: 5px solid #c71461;
-    background:url('../IMG/pattern.jpg');
-    background-size: cover;
+
   
-  }
   .wrapper
   {
     max-width:340px;
+  }
+  svg , body , html
+  {
+    width: 100vw;
+    height:100vh;
+  }
+ svg
+  {
+    background: palevioletred;
+  
   }
   
   .ball {

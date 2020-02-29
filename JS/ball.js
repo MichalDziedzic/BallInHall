@@ -1,68 +1,71 @@
 class Ball {
-    constructor(startTime,finishPlaying) {
-        this.ball=document.querySelector('.ball'),
-        this.playGround= document.querySelector('.play-ground'),
-        this.hole=document.querySelector('.hole'),
-        this.x = 150,
-        this.y = 150,
-        this.maxValue=325,
-        this.health=3,
-        this.moveEvent = window.addEventListener('deviceorientation', (e) =>
-        {
-          this.BallSpeed(e.gamma, e.beta)
-          setInterval(() => this.moveBall(), 10)
+    constructor(startTime,finishGame) {
+        // this.ball=document.querySelector('.ball'),
+        // this.playGround= document.querySelector('.play-ground'),
+        // this.hole=document.querySelector('.hole'),
+        // this.x = 150,
+        // this.y = 150,
+        // this.maxValue=325,
+        // this.health=3,
+        // this.stopBallGame=finishGame;
+        // this.moveEvent = window.addEventListener('deviceorientation', (e) =>
+        // {
+        //   this.BallSpeed(e.gamma, e.beta)
+        //   setInterval(() => this.moveBall(), 10)
           
-        },true),
-        this.moveRateX = 0,
-        this.moveRateY = 0;
-        this.holeTop=this.hole.offsetTop;
-        this.holeLeft=this.hole.offsetLeft;
-        this.startTime=startTime;
-        this.finishPlaying=finishPlaying;
+        // },true),
+        // this.moveRateX = 0,
+        // this.moveRateY = 0;
+        // this.holeTop=this.hole.offsetTop;
+        // this.holeLeft=this.hole.offsetLeft;
+        // this.startTime=startTime;
+        // // this.finishPlaying=finishPlaying;
         
     }
   
     
   
     moveBall(){
-      if(this.x  <=this.maxValue && this.x>=0 && this.y<=this.maxValue && this.y>=0)
-      {
+    //   if(this.x  <=this.maxValue && this.x>=0 && this.y<=this.maxValue && this.y>=0)
+    //   {
   
-        this.ball.style.left = this.x + 'px';
-        this.ball.style.top = this.y + 'px';
-        this.x += this.moveRateX;
-        this.y += this.moveRateY;
+    //     this.ball.style.left = this.x + 'px';
+    //     this.ball.style.top = this.y + 'px';
+    //     this.x += this.moveRateX;
+    //     this.y += this.moveRateY;
         
         
     
-        if(this.y>=265 && this.y<=285 && this.x>=25 && this.x<=53)
-        {
-            console.log('udalo sie !');
+    //     if(this.y>=265 && this.y<=285 && this.x>=25 && this.x<=53)
+    //     {
+    //         console.log('udalo sie !');
 
-            //finishGame(true,this.startTime);
-        }
-     }
+    //         // finishGame(true,this.startTime);
+    //         this.stopBallGame();
+    //     }
+    //  }
         
         
 
 
        
        
-       else{
-        this.x=150;
-        this.y=150;
-        this.moveRateX = 0,
-        this.moveRateY = 0;
-        this.health--;
-        if(this.health===0)
-        {
-            console.log('koniec zycia gry');
-            //finishGame(false,this.startTime);
-            this.finishPlaying(3);
+    //    else{
+    //     this.x=150;
+    //     this.y=150;
+    //     this.moveRateX = 0,
+    //     this.moveRateY = 0;
+    //     this.health--;
+    //     if(this.health===0)
+    //     {
+    //         console.log('koniec zycia gry');
+    //         //finishGame(false,this.startTime);
+    //        // this.finishPlaying(3);
+    //        this.stopBallGame();
 
-        }
+    //     }
         
-      }
+    //   }
         
      
     }

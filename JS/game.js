@@ -1,12 +1,16 @@
 class Game{
     constructor(){
         this.BtnStartGame=document.querySelector('.btnStartGame');
-        this.BtnStartGame.addEventListener('click',()=>this.startGame());
-        this.open=false;
+      //  this.BtnStartGame.addEventListener('click',()=>this.startGame());
+        this.startGameStatus=false;
         this.playground=document.querySelector('.play-ground');
         this.panelGame=document.querySelector('.panelGame');
-        this.checkGameBtn();
+     
         this.startTime=null;
+        //////
+        this.playground.style.display="block";
+        this.panelGame.style.display="none";
+        this.startGame();
         
         //this.health=3;
         
@@ -15,8 +19,8 @@ class Game{
     }
     checkGameBtn()
     {
-         this.playground.style.display="none";
-             this.panelGame.style.display="block";
+        //  this.playground.style.display="none";
+        //      this.panelGame.style.display="block";
              
         console.log('xxx');
         
@@ -25,46 +29,54 @@ class Game{
     }
     startGame()
     {
-        
-        this.open=!this.open;
+        // const startTime=new Date();
+        // const test1=new Ball(startTime,this.finishGame);
        
-       if(this.open)
-        {
-            this.playground.style.display="block";
-            this.panelGame.style.display="none";
-            // this.open=false;
-            const startTime=new Date();
-             const test1=new Ball(startTime,this.finishPlaying);
+        
+    //     this.startGameStatus=!this.startGameStatus;
+       
+    //    if(this.startGameStatus)
+    //     {
+    //         this.playground.style.display="block";
+    //         this.panelGame.style.display="none";
+    //          this.startGameStatus=false;
+    //         const startTime=new Date();
+    //          const test1=new Ball(startTime,this.finishGame);
             
 
-             //setInterval(() =>Timer(this.startTime,el),1);
+    //          //setInterval(() =>Timer(this.startTime,el),1);
             
-        }
+    //     }
         
-    }
+    
     //finishPlaying(param,yourTime)
-    finishPlaying(param)
-    {
+    // finishPlaying(param)
+    // {
         
-        console.log(param);
-        //let xd=param;
-        // if(!this.open)
-        // {
-        //     this.playground.style.display="none";
-        //      this.panelGame.style.display="block";
-        //      let finishDiv=document.createElement("div");
-        //      finishDiv.classList.add("TheEndGame");
-        //      this.panelGame.append(finishDiv);
+    //     console.log(param);
+    //     //let xd=param;
+    //     // if(!this.startGameStatus)
+    //     // {
+    //     //     this.playground.style.display="none";
+    //     //      this.panelGame.style.display="block";
+    //     //      let finishDiv=document.createElement("div");
+    //     //      finishDiv.classList.add("TheEndGame");
+    //     //      this.panelGame.append(finishDiv);
             
-        //      if(param===true)
-        //      {
-        //         finishDiv.innerText=`YOU WIN!,your time is :${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()}`;
-        //      }else
-        //      {
-        //         finishDiv.innerText=`YOU LOSE! in time:${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()} TRY AGAIN`;
-        //      }
-        //  }
-     }
+    //     //      if(param===true)
+    //     //      {
+    //     //         finishDiv.innerText=`YOU WIN!,your time is :${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()}`;
+    //     //      }else
+    //     //      {
+    //     //         finishDiv.innerText=`YOU LOSE! in time:${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()} TRY AGAIN`;
+    //     //      }
+    //     //  }
+    //  }
+    }
+    finishGame(){
+        console.log('xhujj')
+
+    }
     
    
     
