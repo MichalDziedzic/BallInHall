@@ -1,17 +1,16 @@
 class Game{
-    constructor(){
-        this.BtnStartGame=document.querySelector('.btnStartGame');
-      //  this.BtnStartGame.addEventListener('click',()=>this.startGame());
-        this.startGameStatus=false;
+    constructor(targetAmount){
+       
+        
         this.playground=document.querySelector('.play-ground');
         this.panelGame=document.querySelector('.panelGame');
-     
+        this.targetAmount=targetAmount;
         this.startTime=null;
-        //////
-        this.playground.style.display="block";
-        this.panelGame.style.display="none";
-        this.startGame();
         
+        // this.playground.style.display="block";
+        // this.panelGame.style.display="none";
+        
+        this.startGame();
         //this.health=3;
         
         
@@ -29,8 +28,8 @@ class Game{
     }
     startGame()
     {
-        // const startTime=new Date();
-        // const test1=new Ball(startTime,this.finishGame);
+        const startTime=new Date();
+        const test1=new Ball(startTime,this.finishGame);
        
         
     //     this.startGameStatus=!this.startGameStatus;
@@ -46,35 +45,35 @@ class Game{
 
     //          //setInterval(() =>Timer(this.startTime,el),1);
             
-    //     }
+        }
         
     
-    //finishPlaying(param,yourTime)
+    
     // finishPlaying(param)
     // {
         
     //     console.log(param);
-    //     //let xd=param;
-    //     // if(!this.startGameStatus)
-    //     // {
-    //     //     this.playground.style.display="none";
-    //     //      this.panelGame.style.display="block";
-    //     //      let finishDiv=document.createElement("div");
-    //     //      finishDiv.classList.add("TheEndGame");
-    //     //      this.panelGame.append(finishDiv);
+    //     let xd=param;
+    //     if(!this.startGameStatus)
+    //     {
+    //         this.playground.style.display="none";
+    //          this.panelGame.style.display="block";
+    //          let finishDiv=document.createElement("div");
+    //          finishDiv.classList.add("TheEndGame");
+    //          this.panelGame.append(finishDiv);
             
-    //     //      if(param===true)
-    //     //      {
-    //     //         finishDiv.innerText=`YOU WIN!,your time is :${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()}`;
-    //     //      }else
-    //     //      {
-    //     //         finishDiv.innerText=`YOU LOSE! in time:${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()} TRY AGAIN`;
-    //     //      }
-    //     //  }
+    //          if(param===true)
+    //          {
+    //             finishDiv.innerText=`YOU WIN!,your time is :${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()}`;
+    //          }else
+    //          {
+    //             finishDiv.innerText=`YOU LOSE! in time:${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()} TRY AGAIN`;
+    //          }
+    //      }
     //  }
-    }
+    
     finishGame(){
-        console.log('xhujj')
+        console.log('xhtyhujj')
 
     }
     
@@ -83,4 +82,3 @@ class Game{
 }
 
  
-const xxdd= new Game();

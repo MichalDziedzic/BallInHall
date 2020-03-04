@@ -1,49 +1,65 @@
 class Ball {
     constructor(startTime,finishGame) {
-        // this.ball=document.querySelector('.ball'),
-        // this.playGround= document.querySelector('.play-ground'),
-        // this.hole=document.querySelector('.hole'),
-        // this.x = 150,
-        // this.y = 150,
-        // this.maxValue=325,
-        // this.health=3,
-        // this.stopBallGame=finishGame;
-        // this.moveEvent = window.addEventListener('deviceorientation', (e) =>
-        // {
-        //   this.BallSpeed(e.gamma, e.beta)
-        //   setInterval(() => this.moveBall(), 10)
+       // this.ball=document.querySelector('.ball'),
+        this.svgBallBoard=document.querySelector('#BallBoard'),
+        this.playGround= document.querySelector('.playGround'),
+        this.health=3,
+        this.finishBallGame=finishGame;
+        this.posX=window.innerWidth/2;
+        this.posY=window.innerHeight/2;
+        this.circle={};
+        this.radius=10;
+        this.amount=0;
+        this.startBallProperties();
+        this.moveEvent = window.addEventListener('deviceorientation', (e) =>
+        {
+          this.BallSpeed(e.gamma, e.beta)
+          setInterval(() => this.moveBall(), 10)
           
-        // },true),
-        // this.moveRateX = 0,
-        // this.moveRateY = 0;
-        // this.holeTop=this.hole.offsetTop;
-        // this.holeLeft=this.hole.offsetLeft;
-        // this.startTime=startTime;
-        // // this.finishPlaying=finishPlaying;
+        },true),
+        this.moveRateX = 0,
+        this.moveRateY = 0;
+        
+        
         
     }
+
+    startBallProperties(){
+
+        //console.log('elo');
+        const svgBallElem=document.createElementNS('http://www.w3.org/2000/svg','circle');
+        this.circle.el = svgBallElem.cloneNode(false);
+        console.log(this.circle);
+    
+        this.circle.el.setAttribute('cx',this.posX);
+        this.circle.el.setAttribute('cy',this.posY);
+        this.circle.el.setAttribute('r', this.radius);
+        //this.circle.el.setAttribute('id',`svgBallelem${this.amount++}`);
+        this.svgBallBoard.appendChild(this.circle.el);
+
+}
   
     
   
     moveBall(){
-    //   if(this.x  <=this.maxValue && this.x>=0 && this.y<=this.maxValue && this.y>=0)
-    //   {
+     
   
-    //     this.ball.style.left = this.x + 'px';
-    //     this.ball.style.top = this.y + 'px';
-    //     this.x += this.moveRateX;
-    //     this.y += this.moveRateY;
+        // this.ball.style.left = this.x + 'px';
+        // this.ball.style.top = this.y + 'px';
+        this.startBallProperties(this.posX,this.posY)
+        this.posX += this.moveRateX;
+        this.posY += this.moveRateY;
         
         
     
-    //     if(this.y>=265 && this.y<=285 && this.x>=25 && this.x<=53)
-    //     {
-    //         console.log('udalo sie !');
+        // if(this.y>=265 && this.y<=285 && this.x>=25 && this.x<=53)
+        // {
+        //     console.log('udalo sie !');
 
-    //         // finishGame(true,this.startTime);
-    //         this.stopBallGame();
-    //     }
-    //  }
+        //     // finishGame(true,this.startTime);
+        //     this.stopBallGame();
+        // }
+     
         
         
 
@@ -65,7 +81,7 @@ class Ball {
 
     //     }
         
-    //   }
+      
         
      
     }
@@ -73,7 +89,7 @@ class Ball {
     BallSpeed = (gamma, beta) => {
         this.moveRateX += gamma / 1000;
         this.moveRateY += beta / 1000;
-        
+      
         
     }
   
