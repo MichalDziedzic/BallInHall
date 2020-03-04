@@ -10,7 +10,8 @@ class Ball {
         this.circle={};
         this.radius=10;
         this.amount=0;
-        this.startBallProperties();
+       // console.log('test4');
+       this.startBallProperties();
         this.moveEvent = window.addEventListener('deviceorientation', (e) =>
         {
           this.BallSpeed(e.gamma, e.beta)
@@ -26,16 +27,17 @@ class Ball {
 
     startBallProperties(){
 
-        //console.log('elo');
+       // console.log('elo');
         const svgBallElem=document.createElementNS('http://www.w3.org/2000/svg','circle');
         this.circle.el = svgBallElem.cloneNode(false);
-        console.log(this.circle);
+       // console.log(this.circle);
     
         this.circle.el.setAttribute('cx',this.posX);
         this.circle.el.setAttribute('cy',this.posY);
         this.circle.el.setAttribute('r', this.radius);
-        //this.circle.el.setAttribute('id',`svgBallelem${this.amount++}`);
+        this.circle.el.setAttribute('id','svgBallelem');
         this.svgBallBoard.appendChild(this.circle.el);
+        // console.log(this.svgBallBoard); 
 
 }
   
@@ -43,10 +45,13 @@ class Ball {
   
     moveBall(){
      
-  
-        // this.ball.style.left = this.x + 'px';
-        // this.ball.style.top = this.y + 'px';
-        this.startBallProperties(this.posX,this.posY)
+        const ball1=document.querySelector('#svgBallelem');
+
+
+        ball1.setAttribute('cx',this.posX);
+       ball1.setAttribute('cy',this.posY);
+       
+       // this.startBallProperties(this.posX,this.posY)
         this.posX += this.moveRateX;
         this.posY += this.moveRateY;
         
