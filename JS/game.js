@@ -1,11 +1,14 @@
 class Game{
-    constructor(targetAmount){
+    constructor(holesAmount){
        
-        
+        this.svgBallBoard=document.querySelector('#BallBoard'),
         this.playground=document.querySelector('.play-ground');
         this.panelGame=document.querySelector('.panelGame');
-        this.targetAmount=targetAmount;
+        this.holesAmount=holesAmount; //refact
         this.startTime=null;
+        this.holes=[];
+        this.score=0;
+        this.ball=new Ball(this.finishGame,this.checkBallinHole)
         
         // this.playground.style.display="block";
         // this.panelGame.style.display="none";
@@ -28,8 +31,10 @@ class Game{
     }
     startGame()
     {
-        const startTime=new Date();
-        const test1=new Ball(startTime,this.finishGame);
+        this.generateHolesOnBoard();
+        
+        //const ;
+        
        
         
     //     this.startGameStatus=!this.startGameStatus;
@@ -47,7 +52,68 @@ class Game{
             
         }
         
-    
+    generateHolesOnBoard()
+    {
+
+       
+        const rangeH=window.innerWidth;
+        const rangeW=window.innerWidth;
+
+        
+
+         for(let i=0;i<this.holesAmount;i++)
+        {
+            
+            console.log('auus')
+           let randPosX=Math.floor(Math.random()*(rangeW-30)+30);
+           let randPosY=Math.floor(Math.random()*(rangeH-30)+30);
+  
+           const hole= new Hole(i,randPosX,randPosY);
+            
+           this.holes.push(hole);
+           this.setHole(i,randPosX,randPosY);   
+         }    
+        
+        
+    }
+    setHole(i,x,y)
+    {
+        
+        const svgHole=document.createElementNS('http://www.w3.org/2000/svg','circle');
+        this.holes[i].el=svgHole.cloneNode(false);
+        this.holes[i].el.setAttribute('cx',x);
+        this.holes[i].el.setAttribute('cy',y);
+        this.holes[i].el.setAttribute('r', 15);
+        this.holes[i].el.setAttribute('id',`svgHall${i}`);
+        //this.svgBallBoard.appendChild(this.holes[i].el);
+        document.querySelector('#svgBallelem').before(this.holes[i].el)
+
+    }
+    checkBallinHole=()=>
+    {
+        const ballxMin = (Math.floor(this.ball.posX))
+        const ballxMax = ballxMin + this.ball.size
+        const ballyMin = (Math.floor(this.ball.posY))
+        const ballyMax = ballyMin + this.ball.size
+
+        const holexMin = this.holes[this.score].posX + 5;
+        const holexMax = this.holes[this.score].posX + this.holes[this.score].size - 5;
+        const holeyMin = this.holes[this.score].posY + 5;
+        const holeyMax = this.holes[this.score].posY + this.holes[this.score].size - 5;
+
+        //console.log(this.holes);
+        //console.log(ballxMin);
+        // console.log(`${holexMin}_${holexMax}`);
+        // console.log(`${holeyMin}_${holeyMax}`);
+        if ((((ballyMin > holeyMin) && (ballyMax < holeyMax)) && ((ballxMin > holexMin) && (ballxMax < holexMax)))) {
+            //this.handlePoint();
+            console.log('hihi');
+            this.score++;
+            
+        }
+
+
+    }
     
     // finishPlaying(param)
     // {

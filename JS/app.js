@@ -32,7 +32,7 @@
 document.addEventListener('DOMContentLoaded', (e) => {
   console.log('DOM fully loaded and parsed');
 
-  const xxdd= new Game(2);
+  const xxdd= new Game(3);
 });
         
 //}
