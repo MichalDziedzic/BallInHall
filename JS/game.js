@@ -85,8 +85,11 @@ class Game{
         this.holes[i].el.setAttribute('cy',y);
         this.holes[i].el.setAttribute('r', 15);
         this.holes[i].el.setAttribute('id',`svgHall${i}`);
-        //this.svgBallBoard.appendChild(this.holes[i].el);
-        document.querySelector('#svgBallelem').before(this.holes[i].el)
+
+    
+        document.querySelector('#svgBallelem').before(this.holes[i].el);
+        this.ActiveHole();
+        
 
     }
     checkBallinHole=()=>
@@ -96,24 +99,37 @@ class Game{
         const ballyMin = (Math.floor(this.ball.posY))
         const ballyMax = ballyMin + this.ball.size
 
-        const holexMin = this.holes[this.score].posX + 5;
-        const holexMax = this.holes[this.score].posX + this.holes[this.score].size - 5;
-        const holeyMin = this.holes[this.score].posY + 5;
-        const holeyMax = this.holes[this.score].posY + this.holes[this.score].size - 5;
+        const holexMin = this.holes[this.score].posX;
+        const holexMax = this.holes[this.score].posX + this.holes[this.score].size;
+        const holeyMin = this.holes[this.score].posY;
+        const holeyMax = this.holes[this.score].posY + this.holes[this.score].size;
+        
+        
 
-        //console.log(this.holes);
-        //console.log(ballxMin);
-        // console.log(`${holexMin}_${holexMax}`);
-        // console.log(`${holeyMin}_${holeyMax}`);
+     
         if ((((ballyMin > holeyMin) && (ballyMax < holeyMax)) && ((ballxMin > holexMin) && (ballxMax < holexMax)))) {
             //this.handlePoint();
             console.log('hihi');
-            this.score++;
+            if(this.score===this.holesAmount)
+            {
+                this.finishGame();
+            }else
+            {   this.holes[this.score].el.remove();
+                this.score++;
+                this.ActiveHole();
+                //remove ball o tym id 
+            }
+            
             
         }
 
 
     }
+    ActiveHole()
+    {
+        this.holes[this.score].el.setAttribute('fill','rgb(132, 132, 130');
+    }
+
     
     // finishPlaying(param)
     // {
